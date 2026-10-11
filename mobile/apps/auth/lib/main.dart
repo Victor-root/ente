@@ -38,6 +38,7 @@ import 'package:ente_strings/ente_strings.dart';
 import 'package:ente_ui/theme/theme_config.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_displaymode/flutter_displaymode.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:tray_manager/tray_manager.dart';
@@ -128,6 +129,12 @@ void main() async {
   await _runInForeground();
   if (Platform.isAndroid) {
     FlutterDisplayMode.setHighRefreshRate().ignore();
+    SystemChrome.setSystemUIOverlayStyle(
+      const SystemUiOverlayStyle(
+        systemNavigationBarColor: Color(0x00000000),
+        systemNavigationBarContrastEnforced: false,
+      ),
+    );
   }
 }
 
