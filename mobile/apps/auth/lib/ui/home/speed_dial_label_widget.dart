@@ -1,4 +1,4 @@
-import 'package:ente_auth/ente_theme_data.dart';
+import 'package:ente_auth/theme/ente_theme.dart';
 import 'package:flutter/material.dart';
 
 class SpeedDialLabelWidget extends StatelessWidget {
@@ -15,13 +15,11 @@ class SpeedDialLabelWidget extends StatelessWidget {
         padding: const EdgeInsets.all(12),
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(8),
-          color: Theme.of(context).colorScheme.fabBackgroundColor,
+          color: getEnteColorScheme(context).primary700,
         ),
         child: Text(
           label,
-          style: TextStyle(
-            color: Theme.of(context).colorScheme.fabForegroundColor,
-          ),
+          style: const TextStyle(color: Colors.white),
         ),
       ),
     );

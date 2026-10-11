@@ -2358,6 +2358,7 @@ class _HomePageState extends State<HomePage> {
 
   Widget _getFab() {
     final isDesktop = PlatformDetector.isDesktop();
+    final fabColor = getEnteColorScheme(context).primary700;
     return SpeedDial(
       icon: Icons.add,
       activeIcon: Icons.close,
@@ -2365,8 +2366,8 @@ class _HomePageState extends State<HomePage> {
       childPadding: const EdgeInsets.all(5),
       spaceBetweenChildren: 4,
       tooltip: context.strings.addCode,
-      foregroundColor: Theme.of(context).colorScheme.fabForegroundColor,
-      backgroundColor: Theme.of(context).colorScheme.fabBackgroundColor,
+      foregroundColor: Colors.white,
+      backgroundColor: fabColor,
       overlayOpacity: 0.5,
       overlayColor: Theme.of(context).colorScheme.surface,
       elevation: 8.0,
@@ -2375,15 +2376,15 @@ class _HomePageState extends State<HomePage> {
         if (!isDesktop)
           SpeedDialChild(
             child: const HugeIcon(icon: HugeIcons.strokeRoundedQrCode),
-            foregroundColor: Theme.of(context).colorScheme.fabForegroundColor,
-            backgroundColor: Theme.of(context).colorScheme.fabBackgroundColor,
+            foregroundColor: Colors.white,
+            backgroundColor: fabColor,
             labelWidget: SpeedDialLabelWidget(context.strings.scanAQrCode),
             onTap: _redirectToScannerPage,
           ),
         SpeedDialChild(
           child: const Icon(Icons.keyboard_alt_outlined),
-          foregroundColor: Theme.of(context).colorScheme.fabForegroundColor,
-          backgroundColor: Theme.of(context).colorScheme.fabBackgroundColor,
+          foregroundColor: Colors.white,
+          backgroundColor: fabColor,
           labelWidget: SpeedDialLabelWidget(
             context.strings.enterDetailsManually,
           ),
@@ -2392,8 +2393,8 @@ class _HomePageState extends State<HomePage> {
         if (isDesktop || PlatformDetector.isMobile())
           SpeedDialChild(
             child: const HugeIcon(icon: HugeIcons.strokeRoundedAlbum02),
-            backgroundColor: Theme.of(context).colorScheme.fabBackgroundColor,
-            foregroundColor: Theme.of(context).colorScheme.fabForegroundColor,
+            backgroundColor: fabColor,
+            foregroundColor: Colors.white,
             labelWidget: SpeedDialLabelWidget(
               context.strings.importFromGallery,
             ),
